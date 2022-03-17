@@ -1,0 +1,2 @@
+class PartKit < ApplicationRecord
+end

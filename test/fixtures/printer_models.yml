@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  make: MyString
+  model: MyString
+  is_color: false
+  toner_cyan: MyString
+  toner_magenta: MyString
+  toner_yellow: MyString
+  toner_black: MyString
+  has_replaceable_fuser: false
+  fuser_kit: MyString
+  has_replaceable_transfer_belt: false
+  transfer_kit: MyString
+
+two:
+  make: MyString
+  model: MyString
+  is_color: false
+  toner_cyan: MyString
+  toner_magenta: MyString
+  toner_yellow: MyString
+  toner_black: MyString
+  has_replaceable_fuser: false
+  fuser_kit: MyString
+  has_replaceable_transfer_belt: false
+  transfer_kit: MyString

@@ -1,0 +1,2 @@
+class PrinterModel < ApplicationRecord
+end

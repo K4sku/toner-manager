@@ -1,0 +1,37 @@
+<%= form_with(model: toner) do |form| %>
+  <% if toner.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(toner.errors.count, "error") %> prohibited this toner from being saved:</h2>
+
+      <ul>
+        <% toner.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :type, style: "display: block" %>
+    <%= form.text_field :type %>
+  </div>
+
+  <div>
+    <%= form.label :color, style: "display: block" %>
+    <%= form.number_field :color %>
+  </div>
+
+  <div>
+    <%= form.label :oem_name, style: "display: block" %>
+    <%= form.text_field :oem_name %>
+  </div>
+
+  <div>
+    <%= form.label :purchase_net_price, style: "display: block" %>
+    <%= form.text_field :purchase_net_price %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

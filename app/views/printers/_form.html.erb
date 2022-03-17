@@ -1,0 +1,52 @@
+<%= form_with(model: printer) do |form| %>
+  <% if printer.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(printer.errors.count, "error") %> prohibited this printer from being saved:</h2>
+
+      <ul>
+        <% printer.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :asset_id, style: "display: block" %>
+    <%= form.text_field :asset_id %>
+  </div>
+
+  <div>
+    <%= form.label :purchase_date, style: "display: block" %>
+    <%= form.date_field :purchase_date %>
+  </div>
+
+  <div>
+    <%= form.label :purchase_net_price, style: "display: block" %>
+    <%= form.text_field :purchase_net_price %>
+  </div>
+
+  <div>
+    <%= form.label :location, style: "display: block" %>
+    <%= form.text_field :location %>
+  </div>
+
+  <div>
+    <%= form.label :ip_reservation, style: "display: block" %>
+    <%= form.text_field :ip_reservation %>
+  </div>
+
+  <div>
+    <%= form.label :primary_user, style: "display: block" %>
+    <%= form.text_field :primary_user %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

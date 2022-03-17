@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  color: 1
+  oem_name: MyString
+  purchase_net_price: 9.99
+
+two:
+  type: 
+  color: 1
+  oem_name: MyString
+  purchase_net_price: 9.99

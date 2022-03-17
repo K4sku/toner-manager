@@ -1,0 +1,32 @@
+<%= form_with(model: part_kit) do |form| %>
+  <% if part_kit.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(part_kit.errors.count, "error") %> prohibited this part_kit from being saved:</h2>
+
+      <ul>
+        <% part_kit.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :type, style: "display: block" %>
+    <%= form.text_field :type %>
+  </div>
+
+  <div>
+    <%= form.label :oem_name, style: "display: block" %>
+    <%= form.text_field :oem_name %>
+  </div>
+
+  <div>
+    <%= form.label :purchase_net_price, style: "display: block" %>
+    <%= form.text_field :purchase_net_price %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

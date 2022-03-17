@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Toners</h1>
+
+<div id="toners">
+  <% @toners.each do |toner| %>
+    <%= render toner %>
+    <p>
+      <%= link_to "Show this toner", toner %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New toner", new_toner_path %>

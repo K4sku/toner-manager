@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Part kits</h1>
+
+<div id="part_kits">
+  <% @part_kits.each do |part_kit| %>
+    <%= render part_kit %>
+    <p>
+      <%= link_to "Show this part kit", part_kit %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New part kit", new_part_kit_path %>

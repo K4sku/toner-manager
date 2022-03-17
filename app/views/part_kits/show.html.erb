@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @part_kit %>
+
+<div>
+  <%= link_to "Edit this part kit", edit_part_kit_path(@part_kit) %> |
+  <%= link_to "Back to part kits", part_kits_path %>
+
+  <%= button_to "Destroy this part kit", @part_kit, method: :delete %>
+</div>

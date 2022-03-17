@@ -1,0 +1,72 @@
+<%= form_with(model: printer_model) do |form| %>
+  <% if printer_model.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(printer_model.errors.count, "error") %> prohibited this printer_model from being saved:</h2>
+
+      <ul>
+        <% printer_model.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :make, style: "display: block" %>
+    <%= form.text_field :make %>
+  </div>
+
+  <div>
+    <%= form.label :model, style: "display: block" %>
+    <%= form.text_field :model %>
+  </div>
+
+  <div>
+    <%= form.label :is_color, style: "display: block" %>
+    <%= form.check_box :is_color %>
+  </div>
+
+  <div>
+    <%= form.label :toner_cyan, style: "display: block" %>
+    <%= form.text_field :toner_cyan %>
+  </div>
+
+  <div>
+    <%= form.label :toner_magenta, style: "display: block" %>
+    <%= form.text_field :toner_magenta %>
+  </div>
+
+  <div>
+    <%= form.label :toner_yellow, style: "display: block" %>
+    <%= form.text_field :toner_yellow %>
+  </div>
+
+  <div>
+    <%= form.label :toner_black, style: "display: block" %>
+    <%= form.text_field :toner_black %>
+  </div>
+
+  <div>
+    <%= form.label :has_replaceable_fuser, style: "display: block" %>
+    <%= form.check_box :has_replaceable_fuser %>
+  </div>
+
+  <div>
+    <%= form.label :fuser_kit, style: "display: block" %>
+    <%= form.text_field :fuser_kit %>
+  </div>
+
+  <div>
+    <%= form.label :has_replaceable_transfer_belt, style: "display: block" %>
+    <%= form.check_box :has_replaceable_transfer_belt %>
+  </div>
+
+  <div>
+    <%= form.label :transfer_kit, style: "display: block" %>
+    <%= form.text_field :transfer_kit %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

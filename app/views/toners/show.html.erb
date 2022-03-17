@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @toner %>
+
+<div>
+  <%= link_to "Edit this toner", edit_toner_path(@toner) %> |
+  <%= link_to "Back to toners", toners_path %>
+
+  <%= button_to "Destroy this toner", @toner, method: :delete %>
+</div>
