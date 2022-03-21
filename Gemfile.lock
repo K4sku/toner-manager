@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/ricardoemerson/font-ionicons-rails.git
+  revision: af956fc2a01bf2878b7f475913a7c0bb7cf9f0e0
+  specs:
+    font-ionicons-rails (2.0.1.6)
+      railties (>= 3.2, < 8.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -229,6 +236,7 @@ DEPENDENCIES
   bulma-rails
   capybara
   debug
+  font-ionicons-rails!
   importmap-rails
   jbuilder
   puma (~> 5.0)

@@ -1,5 +1,12 @@
 {
   "dependencies": {
     "bulma": "^0.9.3"
-  }
+  },
+  "name": "toner-manager",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/K4sku/toner-manager.git",
+  "author": "Cezary Kłos <cezary.klos@gmail.com>",
+  "license": "MIT",
+  "private": false
 }

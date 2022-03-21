@@ -1,37 +1,45 @@
-<div id="<%= dom_id printer %>">
-  <p>
+<div id="<%= dom_id printer %>" class="box">
+<div class="columns">
+  <div class="column has-background-primary">
     <strong>Name:</strong>
     <%= printer.name %>
-  </p>
+  </div>
 
-  <p>
+  <div class="column has-background-light">
     <strong>Asset:</strong>
     <%= printer.asset_id %>
-  </p>
+  </div>
 
-  <p>
+  <div class="column">
     <strong>Purchase date:</strong>
     <%= printer.purchase_date %>
-  </p>
+  </div>
 
-  <p>
+  <div class="column has-background-primary">
     <strong>Purchase net price:</strong>
     <%= printer.purchase_net_price %>
-  </p>
+  </div>
 
-  <p>
+  <div class="column">
     <strong>Location:</strong>
     <%= printer.location %>
-  </p>
+  </div>
 
-  <p>
+  <div class="column">
     <strong>Ip reservation:</strong>
     <%= printer.ip_reservation %>
-  </p>
+  </div>
 
-  <p>
+  <div class="column">
     <strong>Primary user:</strong>
     <%= printer.primary_user %>
-  </p>
+  </div>
 
+  <div class="column">
+     <span class="icon is-large">
+      <i class="ion-ionic chevron-down-outline"></i>
+    </span>
+  </div>
+
+</div>
 </div>
