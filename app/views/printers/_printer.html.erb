@@ -36,9 +36,12 @@
   </div>
 
   <div class="column">
-     <span class="icon is-large">
-      <i class="ion-ionic chevron-down-outline"></i>
-    </span>
+    <%= link_to  edit_printer_path(printer) do %>
+      <span class="icon is-large">
+        <i class="ion-chevron-down"></i>
+      </span>
+    <% end %>
+
   </div>
 
 </div>

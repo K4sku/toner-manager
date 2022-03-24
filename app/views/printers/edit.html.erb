@@ -1,7 +1,7 @@
 <h1>Editing printer</h1>
-
-<%= render "form", printer: @printer %>
-
+<%= turbo_frame_tag "printer_#{@printer.id}" do %>
+  <%= render "form", printer: @printer %>
+<% end %>
 <br>
 
 <div>
