@@ -2,10 +2,6 @@ import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
 
-    connect() {
-        console.log("Hello, Stimulus!", this.element)
-    }
-
     hamburger_toggle(event) {
         // Get the target from the "data-target" attribute
         const $target = document.getElementById(event.params.id);
