@@ -32,6 +32,7 @@
 
       <%= link_to 'Printers', printers_path, class: "navbar-item" %>
       <%= link_to 'Toners', toners_path, class: "navbar-item" %>
+      <%= link_to 'Printer Models', printer_models_path, class: "navbar-item" %>
 
 
       <div class="navbar-item has-dropdown is-hoverable">
@@ -71,10 +72,8 @@
     </div>
   </div>
 </nav>
-    
-    
-
-  
-    <%= yield %>
+    <div>
+      <%= yield %>
+    </div>
   </body>
 </html>
