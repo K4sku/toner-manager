@@ -1,0 +1,65 @@
+<%= turbo_frame_tag "printer_#{printer.id}" do %>
+<div id="<%= dom_id printer %>" class="box">
+<div class="columns">
+  <div class="column">
+    <strong>Name:</strong>
+    <%= printer.name %>
+  </div>
+
+  <div class="column has-background-light">
+    <strong>Asset:</strong>
+    <%= printer.asset_id %>
+  </div>
+
+  <div class="column">
+    <strong>Purchase date:</strong>
+    <%= printer.purchase_date %>
+  </div>
+
+  <div class="column has-background-primary">
+    <strong>Purchase net price:</strong>
+    <%= printer.purchase_net_price %>
+  </div>
+
+  <div class="column">
+    <strong>Location:</strong>
+    <%= printer.location %>
+  </div>
+
+  <div class="column">
+    <strong>Ip reservation:</strong>
+    <%= printer.ip_reservation %>
+  </div>
+
+  <div class="column">
+    <strong>Primary user:</strong>
+    <%= printer.primary_user %>
+  </div>
+
+<div class="column is-1">
+        <div class="columns">
+          <div class="column">
+            <%= link_to printer do %>
+              <span class="icon is-medium">
+                <i class="ion-chevron-up"></i>
+              </span>
+            <% end %>
+          </div>
+          <div class="column">
+            <%= link_to edit_printer_path(printer) do %>
+              <span class="icon-text is-medium">
+                <i class="ion-ios-cog"></i>
+              </span>
+              <span>
+                Edit
+              </span>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+  </div>
+
+</div>
+</div>
+<% end %>

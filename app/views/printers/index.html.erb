@@ -5,11 +5,8 @@
 <div id="printers">
   <div class="box">
     <% @printers.each do |printer| %>
-      <%= turbo_frame_tag "printer_#{printer.id}" do %>
+      <%= turbo_frame_tag printer do %>
         <%= render printer %>
-        <p>
-          <%= link_to "Show this printer", printer %>
-        </p>
       <% end %>
     <% end %>
    <%= link_to "New printer", new_printer_path %>

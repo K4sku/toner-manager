@@ -1,5 +1,5 @@
 class PrintersController < ApplicationController
-  before_action :set_printer, only: %i[ show edit update destroy ]
+  before_action :set_printer, only: %i[ show details edit update destroy ]
 
   # GET /printers or /printers.json
   def index
@@ -8,6 +8,10 @@ class PrintersController < ApplicationController
 
   # GET /printers/1 or /printers/1.json
   def show
+  end
+
+  # GET /printers/1/details
+  def details
   end
 
   # GET /printers/new
