@@ -17,10 +17,12 @@ class PrintersController < ApplicationController
   # GET /printers/new
   def new
     @printer = Printer.new
+    @printer_models = PrinterModel.all.order(:name)
   end
 
   # GET /printers/1/edit
   def edit
+    @printer_models = PrinterModel.all.order(:name)
   end
 
   # POST /printers or /printers.json
@@ -69,6 +71,6 @@ class PrintersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def printer_params
-      params.require(:printer).permit(:name, :asset_id, :purchase_date, :purchase_net_price, :location, :ip_reservation, :primary_user)
+      params.require(:printer).permit(:name, :asset_id, :purchase_date, :purchase_net_price, :location, :ip_reservation, :primary_user, :printer_model_id)
     end
 end

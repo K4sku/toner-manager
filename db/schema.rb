@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_16_183128) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_27_174721) do
   create_table "part_kits", force: :cascade do |t|
     t.string "type"
     t.string "oem_name"
@@ -35,6 +35,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_16_183128) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "printer_models_toner_models", id: false, force: :cascade do |t|
+    t.integer "printer_model_id", null: false
+    t.integer "toner_model_id", null: false
+  end
+
   create_table "printers", force: :cascade do |t|
     t.string "name"
     t.string "asset_id"
@@ -43,6 +48,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_16_183128) do
     t.string "location"
     t.string "ip_reservation"
     t.string "primary_user"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "printer_model_id", null: false
+    t.index ["printer_model_id"], name: "index_printers_on_printer_model_id"
+  end
+
+  create_table "toner_models", force: :cascade do |t|
+    t.string "make"
+    t.string "type"
+    t.string "model"
+    t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -56,4 +72,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_16_183128) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "printers", "printer_models"
 end

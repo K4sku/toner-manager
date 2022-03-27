@@ -46,6 +46,11 @@
     <%= form.text_field :primary_user %>
   </div>
 
+    <div>
+    <%= form.label :printer_model_id, style: "display: block" %>
+    <%= form.select :printer_model_id, @printer_models.map{ |pm| [pm.model, pm.id]} %>
+  </div>
+
   <div>
     <%= form.submit %>
   </div>
