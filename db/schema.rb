@@ -23,14 +23,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_27_174721) do
     t.string "make"
     t.string "model"
     t.boolean "is_color"
-    t.string "toner_cyan"
-    t.string "toner_magenta"
-    t.string "toner_yellow"
-    t.string "toner_black"
+    t.boolean "is_duplex"
+    t.boolean "is_network"
     t.boolean "has_replaceable_fuser"
-    t.string "fuser_kit"
     t.boolean "has_replaceable_transfer_belt"
-    t.string "transfer_kit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -56,8 +52,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_27_174721) do
 
   create_table "toner_models", force: :cascade do |t|
     t.string "make"
-    t.string "type"
     t.string "model"
+    t.string "symbol"
     t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
