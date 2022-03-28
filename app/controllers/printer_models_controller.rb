@@ -65,6 +65,6 @@ class PrinterModelsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def printer_model_params
-      params.require(:printer_model).permit(:make, :model, :is_color, :toner_cyan, :toner_magenta, :toner_yellow, :toner_black, :has_replaceable_fuser, :fuser_kit, :has_replaceable_transfer_belt, :transfer_kit)
+      params.require(:printer_model).permit(:make, :model, :is_color, :is_duplex, :is_network, :has_replaceable_fuser, :has_replaceable_transfer_belt)
     end
 end
