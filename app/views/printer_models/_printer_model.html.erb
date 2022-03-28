@@ -15,23 +15,31 @@
   </p>
 
   <p>
-    <strong>Toner cyan:</strong>
-    <%= printer_model.toner_cyan %>
+    <strong>Toner black:</strong>
+    <% printer_model.toner_models.black.each do |tm| %>
+      <%= tm.symbol %>
+    <% end %>
   </p>
 
   <p>
-    <strong>Toner magenta:</strong>
-    <%= printer_model.toner_magenta %>
+    <strong>Toner cyan:</strong>
+    <% printer_model.toner_models.cyan.each do |tm| %>
+      <%= tm.symbol %>
+    <% end %>
   </p>
 
   <p>
     <strong>Toner yellow:</strong>
-    <%= printer_model.toner_yellow %>
+    <% printer_model.toner_models.yellow.each do |tm| %>
+      <%= tm.symbol %>
+    <% end %>
   </p>
 
   <p>
-    <strong>Toner black:</strong>
-    <%= printer_model.toner_black %>
+    <strong>Toner magenta:</strong>
+    <% printer_model.toner_models.magenta.each do |tm| %>
+      <%= tm.symbol %>
+    <% end %>
   </p>
 
   <p>
@@ -40,18 +48,8 @@
   </p>
 
   <p>
-    <strong>Fuser kit:</strong>
-    <%= printer_model.fuser_kit %>
-  </p>
-
-  <p>
     <strong>Has replaceable transfer belt:</strong>
     <%= printer_model.has_replaceable_transfer_belt %>
-  </p>
-
-  <p>
-    <strong>Transfer kit:</strong>
-    <%= printer_model.transfer_kit %>
   </p>
 
 </div>
