@@ -1,17 +1,22 @@
 <div id="<%= dom_id toner %>">
   <p>
     <strong>Type:</strong>
-    <%= toner.type %>
+    <%= toner.toner_model.model %>
   </p>
 
   <p>
     <strong>Color:</strong>
-    <%= toner.color %>
+    <%= toner.toner_model.color %>
   </p>
 
   <p>
     <strong>Oem name:</strong>
-    <%= toner.oem_name %>
+    <%= toner.toner_model.symbol %>
+  </p>
+
+  <p>
+    <strong>Purchase net price:</strong>
+    <%= toner.purchase_net_price %>
   </p>
 
   <p>
