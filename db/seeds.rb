@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+# seed Toner Models
 toner415a_black = TonerModel.black.new(:make => "HP", :model => "415A", :symbol => "W2030A")
 toner415a_cyan = TonerModel.cyan.new(:make => "HP", :model => "415A", :symbol => "W2031A")
 toner415a_yellow = TonerModel.yellow.new(:make => "HP", :model => "415A", :symbol => "W2032A")
@@ -24,9 +25,68 @@ toner415x_cyan.save
 toner415x_yellow.save
 toner415x_magenta.save
 
-printer_M479 = PrinterModel.new(:make => "HP", :model => "LaserJet Pro MFP M479", :is_color => true, 
+#Seed Printer Model
+printer_model_M479 = PrinterModel.new(:make => "HP", :model => "LaserJet Pro MFP M479", :is_color => true, 
     :has_replaceable_fuser => false, :has_replaceable_transfer_belt => false,
     :toner_models => [toner415a_black, toner415a_cyan, toner415a_yellow, toner415a_magenta, toner415x_black, toner415x_cyan, toner415x_yellow, toner415x_magenta]
 )
+printer_model_M479.save
 
-printer_M479.save
+#Seed Printer
+printerM479L100 = Printer.new(
+    :printer_model => printer_model_M479,
+    :name => "Printer_L100_M479dn_color",
+    :asset_id => "000/00/0001/ZK",
+    :purchase_date => Date.current(),
+    :purchase_net_price => 3250.50,
+    :location => "L100",
+    :ip_reservation => "192.168.50.100",
+    :primary_user => "shared",
+    :mac_address => "60128BD27C31"
+)
+printerM479L100.save
+
+# Seed Toners
+toner415x_black_1 = Toner.new(
+    :purchase_net_price => "420", 
+    :is_used => true, 
+    :is_spent => true,
+    :toner_model => toner415x_black,
+    :printer => printerM479L100
+)
+toner415x_black_1.save
+
+toner415x_black_2 = Toner.new(
+    :purchase_net_price => "520", 
+    :is_used => true, 
+    :is_spent => false,
+    :toner_model => toner415x_black,
+    :printer => printerM479L100
+)
+toner415x_black_2.save
+
+toner415a_cyan_1 = Toner.new(
+    :purchase_net_price => "310", 
+    :is_used => true, 
+    :is_spent => false,
+    :toner_model => toner415a_cyan,
+    :printer => printerM479L100
+)
+toner415a_cyan_1.save
+
+toner415a_yellow_1 = Toner.new(
+    :purchase_net_price => "310", 
+    :is_used => true, 
+    :is_spent => false,
+    :toner_model => toner415a_yellow,
+    :printer => printerM479L100
+)
+toner415a_yellow_1.save
+
+toner415a_magenta_1 = Toner.new(
+    :purchase_net_price => "310", 
+    :is_used => true, 
+    :toner_model => toner415a_magenta,
+    :printer => printerM479L100
+)
+toner415a_magenta_1.save
