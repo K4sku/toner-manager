@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_27_174721) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_29_121957) do
   create_table "part_kits", force: :cascade do |t|
     t.string "type"
     t.string "oem_name"
@@ -47,6 +47,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_27_174721) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "printer_model_id", null: false
+    t.string "mac_address"
     t.index ["printer_model_id"], name: "index_printers_on_printer_model_id"
   end
 
@@ -60,13 +61,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_27_174721) do
   end
 
   create_table "toners", force: :cascade do |t|
-    t.string "type"
-    t.integer "color"
-    t.string "oem_name"
     t.decimal "purchase_net_price"
+    t.boolean "is_used"
+    t.boolean "is_spent"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "printer_id"
+    t.integer "toner_model_id", null: false
+    t.index ["printer_id"], name: "index_toners_on_printer_id"
+    t.index ["toner_model_id"], name: "index_toners_on_toner_model_id"
   end
 
   add_foreign_key "printers", "printer_models"
+  add_foreign_key "toners", "printers"
+  add_foreign_key "toners", "toner_models"
 end
