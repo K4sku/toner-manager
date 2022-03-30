@@ -16,10 +16,10 @@ toner415a_cyan.save
 toner415a_yellow.save
 toner415a_magenta.save
 
-toner415x_black = TonerModel.black.new(:make => "HP", :model => "415A", :symbol => "W2030x")
-toner415x_cyan = TonerModel.cyan.new(:make => "HP", :model => "415A", :symbol => "W2031x")
-toner415x_yellow = TonerModel.yellow.new(:make => "HP", :model => "415A", :symbol => "W2032x")
-toner415x_magenta = TonerModel.magenta.new(:make => "HP", :model => "415A", :symbol => "W2033x")
+toner415x_black = TonerModel.black.new(:make => "HP", :model => "415x", :symbol => "W2030x")
+toner415x_cyan = TonerModel.cyan.new(:make => "HP", :model => "415x", :symbol => "W2031x")
+toner415x_yellow = TonerModel.yellow.new(:make => "HP", :model => "415x", :symbol => "W2032x")
+toner415x_magenta = TonerModel.magenta.new(:make => "HP", :model => "415x", :symbol => "W2033x")
 toner415x_black.save
 toner415x_cyan.save
 toner415x_yellow.save
@@ -49,8 +49,9 @@ printerM479L100.save
 # Seed Toners
 toner415x_black_1 = Toner.new(
     :purchase_net_price => "420", 
-    :is_used => true, 
+    :is_used => false, 
     :is_spent => true,
+    :level => 0,
     :toner_model => toner415x_black,
     :printer => printerM479L100
 )
@@ -60,6 +61,7 @@ toner415x_black_2 = Toner.new(
     :purchase_net_price => "520", 
     :is_used => true, 
     :is_spent => false,
+    :level => 90,
     :toner_model => toner415x_black,
     :printer => printerM479L100
 )
@@ -69,6 +71,7 @@ toner415a_cyan_1 = Toner.new(
     :purchase_net_price => "310", 
     :is_used => true, 
     :is_spent => false,
+    :level => 30,
     :toner_model => toner415a_cyan,
     :printer => printerM479L100
 )
@@ -78,6 +81,7 @@ toner415a_yellow_1 = Toner.new(
     :purchase_net_price => "310", 
     :is_used => true, 
     :is_spent => false,
+    :level => 40,
     :toner_model => toner415a_yellow,
     :printer => printerM479L100
 )
@@ -86,6 +90,7 @@ toner415a_yellow_1.save
 toner415a_magenta_1 = Toner.new(
     :purchase_net_price => "310", 
     :is_used => true, 
+    :level => 25,
     :toner_model => toner415a_magenta,
     :printer => printerM479L100
 )
