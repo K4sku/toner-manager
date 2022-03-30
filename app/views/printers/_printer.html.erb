@@ -20,6 +20,30 @@
         </div>
       </div>
       <div class="column">
+
+          <p class="has-background-warning mb-3">
+            <strong>
+              Toner models:
+            </strong>
+            <% printer.printer_model.toner_models.group(:model).each do |tm|%>
+              <%= tm.model %>
+            <% end %>
+          </p>
+      
+        <div class="columns">
+          <div class="column">
+            <%= printer.toners.black_in_use.first.level %>
+          </div>
+          <div class="column has-background-warning">
+            <%= printer.toners.cyan_in_use.first.level %>
+          </div>
+          <div class="column">
+            <%= printer.toners.magenta_in_use.first.level %>
+          </div>
+          <div class="column">
+            <%= printer.toners.yellow_in_use.first.level %>
+          </div>
+        </div>
       </div>
       <div class="column is-1">
         <div class="columns">
@@ -28,7 +52,6 @@
               <span class="icon is-medium">
                 <i class="ion-chevron-down"></i>
               </span>
-
             <% end %>
           </div>
           <div class="column">
