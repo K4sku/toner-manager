@@ -21,7 +21,7 @@
       </div>
       <div class="column">
 
-          <p class="has-background-warning mb-3">
+          <p class="mb-3">
             <strong>
               Toner models:
             </strong>
@@ -32,16 +32,32 @@
       
         <div class="columns">
           <div class="column">
-            <%= printer.toners.black_in_use.first.level %>
-          </div>
-          <div class="column has-background-warning">
-            <%= printer.toners.cyan_in_use.first.level %>
-          </div>
-          <div class="column">
-            <%= printer.toners.magenta_in_use.first.level %>
+            <p>
+              <%= printer.toners.black_in_use.first.toner_model.symbol %> - 
+              <%= printer.toners.black_in_use.first.level %>%
+            </p>
+              <%= tag.progress class: %w(progress toner-toner-level is-large), max: 100, value: printer.toners.black_in_use.first.level %>
           </div>
           <div class="column">
-            <%= printer.toners.yellow_in_use.first.level %>
+            <p>
+              <%= printer.toners.cyan_in_use.first.toner_model.symbol %> - 
+              <%= printer.toners.cyan_in_use.first.level %>%
+            </p>
+            <%= tag.progress class: %w(progress is-large is-link), max: 100, value: printer.toners.cyan_in_use.first.level %>
+          </div>
+          <div class="column">
+            <p>
+              <%= printer.toners.magenta_in_use.first.toner_model.symbol %> - 
+              <%= printer.toners.magenta_in_use.first.level %>%
+            </p>
+            <%= tag.progress class: %w(progress is-large is-danger), max: 100, value: printer.toners.magenta_in_use.first.level %>
+          </div>
+          <div class="column">
+            <p>
+              <%= printer.toners.yellow_in_use.first.toner_model.symbol %> - 
+              <%= printer.toners.yellow_in_use.first.level %>%
+            </p>
+            <%= tag.progress class: %w(progress is-large is-warning), max: 100, value: printer.toners.yellow_in_use.first.level %>
           </div>
         </div>
       </div>
