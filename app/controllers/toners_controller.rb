@@ -1,5 +1,5 @@
 class TonersController < ApplicationController
-  before_action :set_toner, only: %i[ show edit update destroy ]
+  before_action :set_toner, only: %i[show edit update destroy]
 
   # GET /toners or /toners.json
   def index
@@ -7,8 +7,7 @@ class TonersController < ApplicationController
   end
 
   # GET /toners/1 or /toners/1.json
-  def show
-  end
+  def show; end
 
   # GET /toners/new
   def new
@@ -16,8 +15,7 @@ class TonersController < ApplicationController
   end
 
   # GET /toners/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /toners or /toners.json
   def create
@@ -25,7 +23,7 @@ class TonersController < ApplicationController
 
     respond_to do |format|
       if @toner.save
-        format.html { redirect_to toner_url(@toner), notice: "Toner was successfully created." }
+        format.html { redirect_to toner_url(@toner), notice: 'Toner was successfully created.' }
         format.json { render :show, status: :created, location: @toner }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +36,7 @@ class TonersController < ApplicationController
   def update
     respond_to do |format|
       if @toner.update(toner_params)
-        format.html { redirect_to toner_url(@toner), notice: "Toner was successfully updated." }
+        format.html { redirect_to toner_url(@toner), notice: 'Toner was successfully updated.' }
         format.json { render :show, status: :ok, location: @toner }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +50,20 @@ class TonersController < ApplicationController
     @toner.destroy
 
     respond_to do |format|
-      format.html { redirect_to toners_url, notice: "Toner was successfully destroyed." }
+      format.html { redirect_to toners_url, notice: 'Toner was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_toner
-      @toner = Toner.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def toner_params
-      params.require(:toner).permit(:type, :color, :oem_name, :purchase_net_price)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_toner
+    @toner = Toner.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def toner_params
+    params.require(:toner).permit(:type, :color, :oem_name, :purchase_net_price)
+  end
 end

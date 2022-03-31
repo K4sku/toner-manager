@@ -1,5 +1,5 @@
 class PrinterModelsController < ApplicationController
-  before_action :set_printer_model, only: %i[ show edit update destroy ]
+  before_action :set_printer_model, only: %i[show edit update destroy]
 
   # GET /printer_models or /printer_models.json
   def index
@@ -7,8 +7,7 @@ class PrinterModelsController < ApplicationController
   end
 
   # GET /printer_models/1 or /printer_models/1.json
-  def show
-  end
+  def show; end
 
   # GET /printer_models/new
   def new
@@ -16,8 +15,7 @@ class PrinterModelsController < ApplicationController
   end
 
   # GET /printer_models/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /printer_models or /printer_models.json
   def create
@@ -25,7 +23,7 @@ class PrinterModelsController < ApplicationController
 
     respond_to do |format|
       if @printer_model.save
-        format.html { redirect_to printer_model_url(@printer_model), notice: "Printer model was successfully created." }
+        format.html { redirect_to printer_model_url(@printer_model), notice: 'Printer model was successfully created.' }
         format.json { render :show, status: :created, location: @printer_model }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +36,7 @@ class PrinterModelsController < ApplicationController
   def update
     respond_to do |format|
       if @printer_model.update(printer_model_params)
-        format.html { redirect_to printer_model_url(@printer_model), notice: "Printer model was successfully updated." }
+        format.html { redirect_to printer_model_url(@printer_model), notice: 'Printer model was successfully updated.' }
         format.json { render :show, status: :ok, location: @printer_model }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +50,21 @@ class PrinterModelsController < ApplicationController
     @printer_model.destroy
 
     respond_to do |format|
-      format.html { redirect_to printer_models_url, notice: "Printer model was successfully destroyed." }
+      format.html { redirect_to printer_models_url, notice: 'Printer model was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_printer_model
-      @printer_model = PrinterModel.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def printer_model_params
-      params.require(:printer_model).permit(:make, :model, :is_color, :is_duplex, :is_network, :has_replaceable_fuser, :has_replaceable_transfer_belt)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_printer_model
+    @printer_model = PrinterModel.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def printer_model_params
+    params.require(:printer_model).permit(:make, :model, :is_color, :is_duplex, :is_network, :has_replaceable_fuser,
+                                          :has_replaceable_transfer_belt)
+  end
 end
