@@ -98,3 +98,24 @@ toner415a_magenta1 = Toner.new(
   printer: printer_m479_l100
 )
 toner415a_magenta1.save
+
+toner415a_cyan2 = Toner.new(
+  purchase_net_price: '331',
+  level: 100,
+  toner_model: toner415a_cyan
+)
+toner415a_cyan2.save
+
+toner415a_yellow2 = Toner.new(
+  purchase_net_price: '332',
+  level: 100,
+  toner_model: toner415a_yellow
+)
+toner415a_yellow2.save
+
+toner415a_magenta2 = Toner.new(
+  purchase_net_price: '333',
+  level: 100,
+  toner_model: toner415a_magenta
+)
+toner415a_magenta2.save
