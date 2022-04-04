@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_30_153112) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_04_183954) do
   create_table "part_kits", force: :cascade do |t|
     t.string "type"
     t.string "oem_name"
@@ -48,6 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_30_153112) do
     t.datetime "updated_at", null: false
     t.integer "printer_model_id", null: false
     t.string "mac_address"
+    t.string "serial_no"
     t.index ["printer_model_id"], name: "index_printers_on_printer_model_id"
   end
 

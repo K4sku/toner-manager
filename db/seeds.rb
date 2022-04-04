@@ -44,7 +44,8 @@ printer_m479_l100 = Printer.new(
   location: 'L100',
   ip_reservation: '192.168.50.100',
   primary_user: 'shared',
-  mac_address: '60128BD27C31'
+  mac_address: '60128BD27C31',
+  serial_no: 'ABC123456789'
 )
 printer_m479_l100.save
 
@@ -55,7 +56,7 @@ toner415x_black1 = Toner.new(
   is_spent: true,
   level: 0,
   toner_model: toner415x_black,
-  printer: printerM479L100
+  printer: printer_m479_l100
 )
 toner415x_black1.save
 
@@ -65,7 +66,7 @@ toner415x_black2 = Toner.new(
   is_spent: false,
   level: 90,
   toner_model: toner415x_black,
-  printer: printerM479L100
+  printer: printer_m479_l100
 )
 toner415x_black2.save
 
@@ -75,7 +76,7 @@ toner415a_cyan1 = Toner.new(
   is_spent: false,
   level: 30,
   toner_model: toner415a_cyan,
-  printer: printerM479L100
+  printer: printer_m479_l100
 )
 toner415a_cyan1.save
 
@@ -85,7 +86,7 @@ toner415a_yellow1 = Toner.new(
   is_spent: false,
   level: 40,
   toner_model: toner415a_yellow,
-  printer: printerM479L100
+  printer: printer_m479_l100
 )
 toner415a_yellow1.save
 
@@ -94,6 +95,6 @@ toner415a_magenta1 = Toner.new(
   is_used: true,
   level: 25,
   toner_model: toner415a_magenta,
-  printer: printerM479L100
+  printer: printer_m479_l100
 )
 toner415a_magenta1.save
