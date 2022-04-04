@@ -62,7 +62,7 @@
         </div>
       </div>
       <div class="column is-1">
-        <div class="columns">
+        <div class="columns is-vcentered is-centered mt-3">
           <div class="column">
             <%= link_to details_path(printer) do %>
               <span class="icon is-medium">
@@ -72,11 +72,8 @@
           </div>
           <div class="column">
             <%= link_to edit_printer_path(printer) do %>
-              <span class="icon-text is-medium">
+              <span class="icon is-medium">
                 <i class="ion-ios-cog"></i>
-              </span>
-              <span>
-                Edit
               </span>
             <% end %>
           </div>
