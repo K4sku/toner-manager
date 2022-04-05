@@ -2,13 +2,10 @@
 
 <h1 class="title">Printers</h1>
 
-<div id="printers">
-  <div class="box">
-    <% @printers.each do |printer| %>
-      <%= turbo_frame_tag printer do %>
-        <%= render printer %>
-      <% end %>
-    <% end %>
+<div id="printers" class="box">
+  <%= turbo_frame_tag "printers" do %>
+   <%= render @printers %>
+  <% end %>
+
    <%= link_to "New printer", new_printer_path %>
-  </div>
 </div>
