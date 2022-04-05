@@ -3,11 +3,13 @@ class PrintersController < ApplicationController
 
   # GET /printers or /printers.json
   def index
-    @printers = Printer.all
+    @printers = Printer.includes(:toners).all
   end
 
   # GET /printers/1 or /printers/1.json
-  def show; end
+  def show
+    @printer = Printer.includes(:toners).find(params[:id])
+  end
 
   # GET /printers/1/details
   def details; end
@@ -65,7 +67,7 @@ class PrintersController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_printer
-    @printer = Printer.includes(:toners).find(params[:id])
+    @printer = Printer.includes(:toners).includes(:printer_model).find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
