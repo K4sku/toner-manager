@@ -24,43 +24,52 @@
       </div>
       <div class="column">
 
-          <p class="mb-3">
-            <strong>
-              Toner models:
-            </strong>
-            <% printer.printer_model.toner_models.group(:model).each do |tm|%>
-              <%= tm.model %>
-            <% end %>
-          </p>
-      
+        <p class="mb-3">
+          <strong>
+            Toner models:
+          </strong>
+          <% printer.printer_model.toner_models.group(:model).each do |tm|%>
+            <%= tm.model %>
+          <% end %>
+        </p>
+
         <div class="columns">
           <div class="column">
-            <p>
-              <%= printer.toners.black_in_use.first.toner_model.symbol %> - 
-              <%= printer.toners.black_in_use.first.level %>%
-            </p>
+            <% if printer.toners.black_in_use.first.present? %>
+              <p>
+                <% black_toner = printer.toners.black_in_use.first %>
+                <%= printer.toners.black_in_use.first.toner_model.symbol %> - 
+                <%= printer.toners.black_in_use.first.level %>%
+              </p>
               <%= tag.progress class: %w(progress toner-toner-level is-large), max: 100, value: printer.toners.black_in_use.first.level %>
+            <% end %>
           </div>
           <div class="column">
-            <p>
-              <%= printer.toners.cyan_in_use.first.toner_model.symbol %> - 
-              <%= printer.toners.cyan_in_use.first.level %>%
-            </p>
-            <%= tag.progress class: %w(progress is-large is-link), max: 100, value: printer.toners.cyan_in_use.first.level %>
+            <% if printer.toners.cyan_in_use.first.present? %>
+              <p>
+                <%= printer.toners.cyan_in_use.first.toner_model.symbol %> - 
+                <%= printer.toners.cyan_in_use.first.level %>%
+              </p>
+              <%= tag.progress class: %w(progress is-large is-link), max: 100, value: printer.toners.cyan_in_use.first.level %>
+            <% end %>
           </div>
           <div class="column">
+          <% if printer.toners.magenta_in_use.first.present? %>
             <p>
               <%= printer.toners.magenta_in_use.first.toner_model.symbol %> - 
               <%= printer.toners.magenta_in_use.first.level %>%
             </p>
             <%= tag.progress class: %w(progress is-large is-danger), max: 100, value: printer.toners.magenta_in_use.first.level %>
+            <% end %>
           </div>
           <div class="column">
+          <% if printer.toners.yellow_in_use.first.present? %>
             <p>
               <%= printer.toners.yellow_in_use.first.toner_model.symbol %> - 
               <%= printer.toners.yellow_in_use.first.level %>%
             </p>
             <%= tag.progress class: %w(progress is-large is-warning), max: 100, value: printer.toners.yellow_in_use.first.level %>
+            <% end %>
           </div>
         </div>
       </div>

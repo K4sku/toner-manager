@@ -17,6 +17,7 @@ class PrintersController < ApplicationController
   # GET /printers/new
   def new
     @printer = Printer.new
+    @printer.primary_user = 'Shared'
     @printer_models = PrinterModel.all.order(:name)
   end
 
@@ -28,6 +29,7 @@ class PrintersController < ApplicationController
   # POST /printers or /printers.json
   def create
     @printer = Printer.new(printer_params)
+    @printer.primary_user ||= 'Shared'
 
     respond_to do |format|
       if @printer.save
