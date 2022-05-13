@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PrinterModel < ApplicationRecord
   has_and_belongs_to_many :toner_models
   validates :make, presence: true

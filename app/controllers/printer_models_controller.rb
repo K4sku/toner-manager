@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PrinterModelsController < ApplicationController
   before_action :set_printer_model, only: %i[show edit update destroy]
 
@@ -23,7 +25,10 @@ class PrinterModelsController < ApplicationController
 
     respond_to do |format|
       if @printer_model.save
-        format.html { redirect_to printer_model_url(@printer_model), notice: 'Printer model was successfully created.' }
+        format.html do
+          redirect_to printer_model_url(@printer_model),
+                      notice: 'Printer model was successfully created.'
+        end
         format.json { render :show, status: :created, location: @printer_model }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -36,7 +41,10 @@ class PrinterModelsController < ApplicationController
   def update
     respond_to do |format|
       if @printer_model.update(printer_model_params)
-        format.html { redirect_to printer_model_url(@printer_model), notice: 'Printer model was successfully updated.' }
+        format.html do
+          redirect_to printer_model_url(@printer_model),
+                      notice: 'Printer model was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @printer_model }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -50,7 +58,9 @@ class PrinterModelsController < ApplicationController
     @printer_model.destroy
 
     respond_to do |format|
-      format.html { redirect_to printer_models_url, notice: 'Printer model was successfully destroyed.' }
+      format.html do
+        redirect_to printer_models_url, notice: 'Printer model was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end

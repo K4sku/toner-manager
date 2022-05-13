@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateTonerModels < ActiveRecord::Migration[7.0]
   def change
     create_table :toner_models do |t|

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreatePrinterTonerModelJoinTable < ActiveRecord::Migration[7.0]
   def change
     create_join_table :printer_models, :toner_models do |t|

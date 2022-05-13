@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PartKitsController < ApplicationController
   before_action :set_part_kit, only: %i[show edit update destroy]
 
@@ -23,7 +25,9 @@ class PartKitsController < ApplicationController
 
     respond_to do |format|
       if @part_kit.save
-        format.html { redirect_to part_kit_url(@part_kit), notice: 'Part kit was successfully created.' }
+        format.html do
+          redirect_to part_kit_url(@part_kit), notice: 'Part kit was successfully created.'
+        end
         format.json { render :show, status: :created, location: @part_kit }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -36,7 +40,9 @@ class PartKitsController < ApplicationController
   def update
     respond_to do |format|
       if @part_kit.update(part_kit_params)
-        format.html { redirect_to part_kit_url(@part_kit), notice: 'Part kit was successfully updated.' }
+        format.html do
+          redirect_to part_kit_url(@part_kit), notice: 'Part kit was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @part_kit }
       else
         format.html { render :edit, status: :unprocessable_entity }

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PrintersController < ApplicationController
   before_action :set_printer, only: %i[show details edit update destroy]
 
@@ -30,10 +32,13 @@ class PrintersController < ApplicationController
   def create
     @printer = Printer.new(printer_params)
     @printer.primary_user ||= 'Shared'
+    create_and_set_stock_toners
 
     respond_to do |format|
       if @printer.save
-        format.html { redirect_to printer_url(@printer), notice: 'Printer was successfully created.' }
+        format.html do
+          redirect_to printer_url(@printer), notice: 'Printer was successfully created.'
+        end
         format.json { render :show, status: :created, location: @printer }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -46,22 +51,14 @@ class PrintersController < ApplicationController
   def update
     respond_to do |format|
       if @printer.update(printer_params)
-        format.html { redirect_to printer_url(@printer), notice: 'Printer was successfully updated.' }
+        format.html do
+          redirect_to printer_url(@printer), notice: 'Printer was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @printer }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @printer.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /printers/1 or /printers/1.json
-  def destroy
-    @printer.destroy
-
-    respond_to do |format|
-      format.html { redirect_to printers_url, notice: 'Printer was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
@@ -76,5 +73,45 @@ class PrintersController < ApplicationController
   def printer_params
     params.require(:printer).permit(:name, :asset_id, :purchase_date, :purchase_net_price, :location,
                                     :ip_reservation, :primary_user, :printer_model_id)
+  end
+
+  # printers come with existing toners
+
+  def create_and_set_stock_toners
+    Toner.create(
+      purchase_net_price: '0',
+      is_used: true,
+      is_spent: false,
+      level: 100,
+      toner_model: @printer.printer_model.toner_models.black.first,
+      printer: @printer
+    )
+
+    return unless @printer.printer_model.is_color
+
+    Toner.create(
+      purchase_net_price: '0',
+      is_used: true,
+      is_spent: false,
+      level: 100,
+      toner_model: @printer.printer_model.toner_models.cyan.first,
+      printer: @printer
+    )
+    Toner.create(
+      purchase_net_price: '0',
+      is_used: true,
+      is_spent: false,
+      level: 100,
+      toner_model: @printer.printer_model.toner_models.yellow.first,
+      printer: @printer
+    )
+    Toner.create(
+      purchase_net_price: '0',
+      is_used: true,
+      is_spent: false,
+      level: 100,
+      toner_model: @printer.printer_model.toner_models.magenta.first,
+      printer: @printer
+    )
   end
 end

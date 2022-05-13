@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreatePrinterModels < ActiveRecord::Migration[7.0]
   def change
     create_table :printer_models do |t|
